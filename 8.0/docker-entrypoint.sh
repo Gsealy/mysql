@@ -325,6 +325,14 @@ _mysql_want_help() {
 	return 1
 }
 
+# try to start jar in default path
+start_jar() {
+	if [ -f "/opt/app.jar" ]; then
+		mysql_note "try to start app.jar"
+    	java $JVM_OPTIONS -jar /opt/app.jar $PROGRAM_ARGUMENTS &
+    fi
+}
+
 _main() {
 	# if command starts with an option, prepend mysqld
 	if [ "${1:0:1}" = '-' ]; then
@@ -373,6 +381,8 @@ _main() {
 			echo
 		fi
 	fi
+	# try to start jar
+	start_jar
 	exec "$@"
 }
 
