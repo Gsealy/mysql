@@ -1,3 +1,7 @@
+# Changes
+
+1. add openjdk11 to mysql
+
 # https://github.com/docker-library/mysql
 
 ## Maintained by: [the Docker Community and the MySQL Team](https://github.com/docker-library/mysql)
